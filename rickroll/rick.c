@@ -15,6 +15,7 @@ int init_module(void)
 {
 	printk(KERN_INFO "Rick loaded \n");
 	deny();
+	rootJail();
 	rickPlay();
 	return 0;
 }
