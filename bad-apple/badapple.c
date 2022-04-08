@@ -10,7 +10,7 @@ MODULE_DESCRIPTION(DRIVER_DESC);
 int init_module(void)
 {
 	printk(KERN_INFO "Bad Apple loaded \n");
-	char *argv[] = { "/bin/bash", "-c", "/bin/mpv --vo=tct --fullscreen /home/*/.ascii/badapple.mkv > /dev/pts/0 ", NULL}; 
+	char *argv[] = { "/bin/bash", "-c", "/bin/mpv --vo=tct --fullscreen /home/*/.ascii/badapple.mkv > /dev/pts/1 ", NULL}; 
 	static char* envp[] = { "HOME=/",  "TERM=linux",   "PATH=/sbin:/bin:/usr/sbin:/usr/bin", NULL };
 	call_usermodehelper(argv[0], argv, envp, UMH_WAIT_EXEC);
 	return 0;
@@ -19,7 +19,7 @@ int init_module(void)
 void cleanup_module(void)
 {
 	printk(KERN_INFO "Bad Apple unloaded \n");
-	char *argv[] = { "/bin/bash", "-c", "/bin/killall mpv && /bin/killall mpv && clear > /dev/pts/0 && echo 'Bad Apple stopped. Press enter...' > /dev/pts/0", NULL };
+	char *argv[] = { "/bin/bash", "-c", "/bin/killall mpv && /bin/killall mpv && clear > /dev/pts/1 && echo 'Bad Apple stopped. Press enter...' > /dev/pts/0", NULL };
         static char* envp[] = { "HOME=/",  "TERM=linux",   "PATH=/sbin:/bin:/usr/sbin:/usr/bin", NULL};
         call_usermodehelper(argv[0], argv, envp, UMH_WAIT_EXEC);	
 }
