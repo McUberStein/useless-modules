@@ -6,7 +6,7 @@ all:
 
 install:
 	mkdir -p /lib/modules/$(shell uname -r)/kernel/drivers/extra
-	cp crash.ko /lib/modules/$(shell uname -r)/kernel/drivers/extra/
+	cp badapple.ko /lib/modules/$(shell uname -r)/kernel/drivers/extra/
 	depmod
 
 novid:
